@@ -57,5 +57,5 @@ class ML:
 
         # FIXME: may be not the best way. Can be implemented using summarisation
 
-        return self.evaluator.similarity(news1, news2) >= 0.5
+        return self.evaluator.similarity(news1.title, news2.title) >= 0.5
         
