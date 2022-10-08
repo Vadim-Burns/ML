@@ -8,3 +8,6 @@ class Collector:
         if len(self.recent_news) == self.history_length:
             self.recent_news.pop(0)
         self.recent_news.append(news)
+
+    def get_recent_news(self):
+        return self.recent_news
