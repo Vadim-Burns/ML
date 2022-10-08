@@ -1,9 +1,9 @@
 from cgi import print_arguments
 import sys
 sys.path.append('../')
+sys.path.append('../app')
 
-
-from model.evaluator import Evaluator
+from app.services.ml.evaluator import Evaluator
 
 model = Evaluator()
 

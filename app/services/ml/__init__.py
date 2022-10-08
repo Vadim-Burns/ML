@@ -1,8 +1,8 @@
 import abc
 from models import ArticleModel
 
-from collector import Collector
-from evaluator import Evaluator
+from app.services.ml.collector import Collector
+from app.services.ml.evaluator import Evaluator
 
 class AbstractMlService(abc.ABC):
 
@@ -64,7 +64,7 @@ class MlService(AbstractMlService):
                 (1-self.okved_ratio - self.base_score_ratio)*sim_oborot
 
     def is_equal(self, article1: ArticleModel, article2: ArticleModel) -> bool:
-        
+
         # FIXME: may be not the best way. Can be implemented using summarisation
 
         return self.evaluator.similarity(article1.title, article2.title) >= 0.5
