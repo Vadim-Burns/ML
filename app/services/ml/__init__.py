@@ -72,6 +72,7 @@ class MlService(AbstractMlService):
 
     def get_trend(self) -> str:
         recent_news = self.collector.get_recent_news()
+        news_texts = [news.text for news in recent_news]
         raise NotImplementedError()
 
     def get_insight(self) -> str:
