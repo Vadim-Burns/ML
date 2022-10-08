@@ -9,6 +9,10 @@ class AbstractMlService(abc.ABC):
         ...
 
     @abc.abstractmethod
+    def add_article(self, article: ArticleModel):
+        ...
+
+    @abc.abstractmethod
     def is_equal(self, article1: ArticleModel, article2: ArticleModel) -> bool:
         ...
 
@@ -22,6 +26,9 @@ class AbstractMlService(abc.ABC):
 
 
 class MlService(AbstractMlService):
+
+    def add_article(self, article: ArticleModel):
+        pass
 
     def score(self, article: ArticleModel, okved: str, oborot: str, role: str) -> float:
         pass
