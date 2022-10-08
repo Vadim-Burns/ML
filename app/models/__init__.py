@@ -10,3 +10,11 @@ class ArticleModel(Base):
     title: str
     text: str
     publish_date: datetime
+
+
+class ArticleFullModel(Base):
+    title: str
+    text: str
+    publish_date: datetime
+    link: str
+    role: str

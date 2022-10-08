@@ -31,13 +31,14 @@ class MlService(AbstractMlService):
         pass
 
     def score(self, article: ArticleModel, okved: str, oborot: str, role: str) -> float:
-        pass
+        import random
+        return random.uniform(0, 1)
 
     def is_equal(self, article1: ArticleModel, article2: ArticleModel) -> bool:
-        pass
+        return False
 
     def get_trend(self) -> str:
-        pass
+        return "trend"
 
     def get_insight(self) -> str:
-        pass
+        return "insight"
