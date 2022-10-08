@@ -5,7 +5,7 @@ from models import ArticleModel
 class AbstractMlService(abc.ABC):
 
     @abc.abstractmethod
-    def score(self, article: ArticleModel, okved: str, oborot: str) -> float:
+    def score(self, article: ArticleModel, okved: str, oborot: str, role: str) -> float:
         ...
 
     @abc.abstractmethod
@@ -23,7 +23,7 @@ class AbstractMlService(abc.ABC):
 
 class MlService(AbstractMlService):
 
-    def score(self, article: ArticleModel, okved: str, oborot: str) -> float:
+    def score(self, article: ArticleModel, okved: str, oborot: str, role: str) -> float:
         pass
 
     def is_equal(self, article1: ArticleModel, article2: ArticleModel) -> bool:
