@@ -142,7 +142,7 @@ class MlService(AbstractMlService):
 
 
         id2word = dictionary.id2token
-        num_topics = 3
+        num_topics = 2
 
         model = LdaModel(
             corpus=corpus,
