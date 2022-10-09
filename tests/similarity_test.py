@@ -11,14 +11,11 @@ model = Evaluator(
     path_to_logreg='../app/services/ml/classifier.pkl'
     )
 
-texts = ['Люди совершают самоубийства чаще, чем обычно, в России', 
-         'В России больше людей стало совершать суицид',
-         'Крымский мост частично обрушился после взрыва.', 
-         'TAC: Зеленский подводит США на грань ядерной войны',
-         'Зеленский призвал НАТО к превентивному удару по России'
+texts = ['Каждый отказ представить те же документы по разным требованиям влечет штраф, подтвердил суд',
+         'Цены на цветной металл растут из-за опасений прекращения поставок'
          ]
 
-kwords = ['Война оружие запад', 'Смерть статистика']
+kwords = ['Ресурсы Материалы', 'Налоги Санкции Закон']
 
 def print_similarity(text_1, text_2):
 
@@ -30,7 +27,7 @@ def print_kwords_sim(text, kwords):
     sm = model.compare_text_with_kwords(text, kwords)
 
     print('='*60)
-    print(f'Correspondance of: \n {kwords} \n to \n {text}: {sm}')
+    print(f'Correspondance of: \n {kwords} \n to \n {text}: \n {sm}')
 
 for i in range(len(texts)):
     for j in range(i+1, len(texts)):
