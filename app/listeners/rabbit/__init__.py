@@ -1,3 +1,4 @@
+import datetime
 import json
 
 import pika
@@ -5,6 +6,7 @@ import pika
 import config
 from models import ArticleFullModel
 from services import AbstractSkService
+from dateutil import parser
 
 
 class RabbitListener:
@@ -35,11 +37,12 @@ class RabbitListener:
     def _new_article_callback(self, role: str):
         def callback(ch, method, properties, body):
             try:
-                body_data = json.loads(body)[0]
+                print(body)
+                body_data = json.loads(body)
                 article = ArticleFullModel(
                     title=body_data['title'],
                     text=body_data['text'],
-                    publish_date=body_data['publish_date'],
+                    publish_date=parser.parse(body_data['publish_date']),
                     link=body_data['link'],
                     role=role
                 )

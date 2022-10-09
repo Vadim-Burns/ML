@@ -1,7 +1,7 @@
 from di import DI
 from listeners import RabbitListener
 from services import SkService
-from signal import signal, SIGTERM, SIGKILL
+from signal import signal, SIGTERM, SIGINT
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
         print("Shutdown gracefully")
 
     signal(SIGTERM, handle_sigterm)
-    signal(SIGKILL, handle_sigterm)
+    signal(SIGINT, handle_sigterm)
     try:
         listener.close()
     except KeyboardInterrupt:
