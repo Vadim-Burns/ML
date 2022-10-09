@@ -17,8 +17,8 @@ ar5 = ArticleModel(title='Д', text='Прикол', publish_date=datetime(year=2
 service = MlService()
 service.add_article(ar1)
 service.add_article(ar2)
-print(service.is_equal(ar1, ar3))
-# service.get_trend()
+print(service.is_equal(ar1, ar2))
+print(service.get_trend())
 print(service.score(ar1, 'Огород', 'Кухня', 'Прикол'))
 
 print(service.score(ar1, 'Война', 'Украина', 'Прикол'))
