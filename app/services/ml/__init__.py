@@ -64,8 +64,24 @@ class MlService(AbstractMlService):
     def add_article(self, article: ArticleModel):
         self.collector.push(article)
 
+    def get_okved_tags(self, okved: str) -> list[list[str]]:
+        first_code = int(okved.split('.')[0])
+        for category in self.evaluator.data_okveds:
+            if first_code in category['codes']:
+                return [category['title'], category['tags']]
+
     def get_base_score(self, article: ArticleModel, role: str):
         return self.evaluator.compare_text_with_kwords(article.title, role)
+
+    def tfidf_model_predict(self, desc: str) -> list[str]:
+        tfidf_out = self.evaluator.tfidf(desc) # <--трансформировать desc с помощью tfidf-->
+        predict = self.simple_model.predict(tfidf_out)# <--сделать предикт на simple_model-->
+        if predict in [2, 3]:
+            return  self.data_okved[2]['tags']
+        elif predict in [0, 4]:
+            return  self.data_okved[0]['tags']
+        else:
+            return self.data_okved[1]['tags'] + self.data_okved[8]['tags']
 
     def score(self, article: ArticleModel, okved: str, oborot: str, role: str) -> float:
         sim_base = self.get_base_score(article, role)
