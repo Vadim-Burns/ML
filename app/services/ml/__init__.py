@@ -114,7 +114,7 @@ class MlService(AbstractMlService):
             for token in text:
                 frequency[token] += 1
 
-        texts = [[token for token in text if frequency[token] > 1 and len(token.strip()) > 3 and token.isdigit() == False]
+        texts = [[token for token in text if frequency[token] > 0 and len(token.strip()) > 2 and token.isdigit() == False]
                  for text in texts]
         
         # To normal form:
@@ -135,7 +135,7 @@ class MlService(AbstractMlService):
         dictionary = corpora.Dictionary(texts)
 
         # Filter out words that occur less than X documents
-        dictionary.filter_extremes(no_below=10)
+        #dictionary.filter_extremes(no_below=10)
 
         # Create the corpus.  This is a Bag of Words representation.
         corpus = [dictionary.doc2bow(text) for text in texts]
