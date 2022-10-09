@@ -3,6 +3,19 @@ from models import ArticleModel
 
 from app.services.ml.collector import Collector
 from app.services.ml.evaluator import Evaluator
+from collections import defaultdict
+
+from gensim import corpora, models
+from gensim.models import Phrases
+from gensim.models import CoherenceModel
+from gensim.models.ldamodel import LdaModel
+
+import pyLDAvis
+import pyLDAvis.gensim_models as gensimvis
+
+import pymorphy2
+import collections
+import re
 
 class AbstractMlService(abc.ABC):
 
