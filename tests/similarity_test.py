@@ -5,7 +5,11 @@ sys.path.append('../app')
 
 from app.services.ml.evaluator import Evaluator
 
-model = Evaluator()
+model = Evaluator(
+    path_to_okved='../app/services/ml/okved.json', 
+    path_to_tfidf='../app/services/ml/tfidf1.pkl', 
+    path_to_logreg='../app/services/ml/classifier.pkl'
+    )
 
 texts = ['Люди совершают самоубийства чаще, чем обычно, в России', 
          'В России больше людей стало совершать суицид',
