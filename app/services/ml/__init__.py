@@ -135,12 +135,12 @@ class MlService(AbstractMlService):
         dictionary = corpora.Dictionary(texts)
 
         # Filter out words that occur less than X documents
-        #dictionary.filter_extremes(no_below=10)
+        dictionary.filter_extremes(no_below=0)
 
         # Create the corpus.  This is a Bag of Words representation.
         corpus = [dictionary.doc2bow(text) for text in texts]
 
-
+        temp = dictionary[0]
         id2word = dictionary.id2token
         num_topics = 2
 
