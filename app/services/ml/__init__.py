@@ -83,7 +83,7 @@ class MlService(AbstractMlService):
         return self.evaluator.similarity(article1.title, article2.title) >= 0.5
         
 
-    def get_trend(self) -> list(str):
+    def get_trend(self) -> list[str]:
         recent_news = self.collector.get_recent_news()
         documents = [news.text for news in recent_news]
         titles = [news.title for news in recent_news]
