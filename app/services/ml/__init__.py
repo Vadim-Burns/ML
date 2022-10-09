@@ -141,7 +141,6 @@ class MlService(AbstractMlService):
         corpus = [dictionary.doc2bow(text) for text in texts]
 
 
-        temp = dictionary[0]
         id2word = dictionary.id2token
         num_topics = 3
 
